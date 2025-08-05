@@ -35,8 +35,8 @@ function Card({ name, glb, usdz }) {
       {/* model-viewer loaded globally from CDN */}
       <model-viewer
         ref={mvRef}
-        src={assetUrl(glb)}
-        ios-src={assetUrl(usdz)}
+        src={glb}
+        ios-src={usdz}
         alt={name}
         environment-image="neutral"
         auto-rotate

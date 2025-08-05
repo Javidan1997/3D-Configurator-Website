@@ -56,10 +56,10 @@ const Z_IDLE = 0.0;
 const Z_HOV = 0.55;
 
 /* Preload assets */
-useGLTF.preload(assetUrl("models/cube_icon.glb"));
-useGLTF.preload(assetUrl("models/laptop_icon.glb"));
-useGLTF.preload(assetUrl("models/vr_icon.glb"));
-useGLTF.preload(assetUrl("models/hand.glb"));
+useGLTF.preload("models/cube_icon.glb");
+useGLTF.preload("models/laptop_icon.glb");
+useGLTF.preload("models/vr_icon.glb");
+useGLTF.preload("models/hand.glb");
 
 /* ---------------- exact-size wireframe model ---------------- */
 export function SizedWireModel({
