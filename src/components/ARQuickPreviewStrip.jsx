@@ -1,12 +1,12 @@
 // src/components/ARQuickPreviewStrip.jsx
 
 import React, { useRef } from "react";
-
+import { assetUrl } from '../lib/assetUrl';
 // Three items with only glb + usdz—no poster PNG
 const items = [
-  { name: "Sneaker", glb: "${import.meta.env.BASE_URL}models/sneaker.glb", usdz: "${import.meta.env.BASE_URL}models/sneaker.usdz" },
-  { name: "Chair",   glb: "${import.meta.env.BASE_URL}models/chair.glb",   usdz: "${import.meta.env.BASE_URL}models/chair.usdz" },
-  { name: "Helmet",  glb: "${import.meta.env.BASE_URL}models/helmet.glb",  usdz: "${import.meta.env.BASE_URL}models/helmet.usdz" },
+  { name: "Sneaker", glb: "models/sneaker.glb", usdz: "models/sneaker.usdz" },
+  { name: "Chair",   glb: "models/chair.glb",   usdz: "models/chair.usdz" },
+  { name: "Helmet",  glb: "models/helmet.glb",  usdz: "models/helmet.usdz" },
 ];
 
 export default function ARQuickPreviewStrip() {
@@ -35,8 +35,8 @@ function Card({ name, glb, usdz }) {
       {/* model-viewer loaded globally from CDN */}
       <model-viewer
         ref={mvRef}
-        src={glb}
-        ios-src={usdz}
+        src={assetUrl(glb)}
+        ios-src={assetUrl(usdz)}
         alt={name}
         environment-image="neutral"
         auto-rotate
