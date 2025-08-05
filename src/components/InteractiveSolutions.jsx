@@ -56,10 +56,10 @@ const Z_IDLE = 0.0;
 const Z_HOV = 0.55;
 
 /* Preload assets */
-useGLTF.preload("/models/cube_icon.glb");
-useGLTF.preload("/models/laptop_icon.glb");
-useGLTF.preload("/models/vr_icon.glb");
-useGLTF.preload("/models/hand.glb");
+useGLTF.preload("${import.meta.env.BASE_URL}models/cube_icon.glb");
+useGLTF.preload("${import.meta.env.BASE_URL}models/laptop_icon.glb");
+useGLTF.preload("${import.meta.env.BASE_URL}models/vr_icon.glb");
+useGLTF.preload("${import.meta.env.BASE_URL}models/hand.glb");
 
 /* ---------------- exact-size wireframe model ---------------- */
 export function SizedWireModel({
@@ -218,7 +218,7 @@ function Card({
 
 /* ---------------- hover hand (desktop only) ---------------- */
 function Hand({ hovered, dims }) {
-  const { scene } = useGLTF("/models/hand.glb");
+  const { scene } = useGLTF("${import.meta.env.BASE_URL}models/hand.glb");
   const handWire = useMemo(() => {
     const clone = scene.clone(true);
     clone.traverse((o) => {
@@ -312,7 +312,7 @@ export default function InteractiveSolutions() {
                 copy="Build & embed product customisers."
                 icon={
                   <SizedWireModel
-                    url="/models/cube_icon.glb"
+                    url="${import.meta.env.BASE_URL}models/cube_icon.glb"
                     width={1.4}
                     height={1.4}
                     z={dims.ICON_Z}
@@ -330,7 +330,7 @@ export default function InteractiveSolutions() {
                 copy="Responsive, immersive websites."
                 icon={
                   <SizedWireModel
-                    url="/models/laptop_icon.glb"
+                    url="${import.meta.env.BASE_URL}models/laptop_icon.glb"
                     width={1.8}
                     height={1.2}
                     z={dims.ICON_Z}
@@ -348,7 +348,7 @@ export default function InteractiveSolutions() {
                 copy="Turn ideas into metaverse spaces."
                 icon={
                   <SizedWireModel
-                    url="/models/vr_icon.glb"
+                    url="${import.meta.env.BASE_URL}models/vr_icon.glb"
                     width={1.6}
                     height={1.2}
                     z={dims.ICON_Z}

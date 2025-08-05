@@ -4,7 +4,7 @@ import { Environment, OrbitControls, Html, useGLTF, Center  } from "@react-three
 import { useAppStore } from "../store/useAppStore";
 
 function Helmet({ rotation }) {
-  const { scene } = useGLTF("models/coupe.glb");
+  const { scene } = useGLTF("${import.meta.env.BASE_URL}models/coupe.glb");
   return (
     <primitive
       object={scene}
