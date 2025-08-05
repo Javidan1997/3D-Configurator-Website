@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls, Html, useGLTF, Center  } from "@react-three/drei";
 import { useAppStore } from "../store/useAppStore";
-
+import { assetUrl } from '../lib/assetUrl';
 function Helmet({ rotation }) {
   const { scene } = useGLTF(assetUrl("models/coupe.glb"));
   return (

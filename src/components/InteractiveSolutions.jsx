@@ -11,7 +11,7 @@ import { Canvas } from "@react-three/fiber";
 import { Center, Html, OrbitControls, useGLTF } from "@react-three/drei";
 import { a, useSpring } from "@react-spring/three";
 import * as THREE from "three";
-
+import { assetUrl } from '../lib/assetUrl';
 /* ───────── utilities ───────── */
 function useIsMobile(bp = 768) {
   const [is, setIs] = useState(
