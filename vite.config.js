@@ -1,7 +1,10 @@
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+const repo = '3D-Configurator-Website'   // <-- your repo name
+
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: '/3D-Configurator-Website/',
-})
+  base: mode === 'production' ? `/${repo}/` : '/',  // dev: "/", prod: "/<repo>/"
+}))
