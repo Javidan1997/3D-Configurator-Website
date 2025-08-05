@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; overflow: none;}
+* { box-sizing: border-box; }
+.gradient-text {
+  background: linear-gradient(90deg,#00E0FF,#4B8CFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card { @apply rounded-2xl bg-surface/70 backdrop-blur border border-white/10 shadow-glow; }
+.btn  { @apply inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium bg-accent text-black hover:opacity-90 transition; }
+.link { @apply text-accent hover:underline; }
+
+.text-base {
+    background: black;
+}
+.hero-text {
+    display: flex;
+    max-width: 645px;
+    gap:20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section {
+     display: grid;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
+    min-width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+    align-content: center;
+}
+.hero3d {
+  width: 100%;
+}
+
+.hero3dconf {
+  width: 100%;
+  min-width: 1000px;
+}
+
+/* src/components/InteractiveSolutions.css */
+.card-html h3 {
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: #00e0ff;
+  margin-bottom: 0.35rem;
+}
+.card-html p {
+  font-size: 0.75rem;
+  color: #9aa6c6;
+}
+canvas {
+  outline: none;
+}
+.gradient-text {
+  background: linear-gradient(90deg, #00e0ff, #4b8cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.is-card-html {
+  position: absolute;
+  top: -30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 220px;           /* stable typography width inside card */
+  transform: translateX(-50%); /* keep centered on card */
+}
+
+.is-title {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #12d6ff;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 0.35rem;
+  text-shadow: 0 0 12px rgba(18, 214, 255, 0.5);
+}
+
+.is-copy {
+  color: #93a4c6;
+  font-size: 10px;
+  opacity: 0.95;
+}
+
+.sandbox-select {
+  background-color: rgb(51, 51, 51);
+}
+
+/* ========== Tablet / Small Desktop ========== */
+@media (max-width: 768px) {
+  /* Stack hero text and 3D on top of each other */
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .is-card-html {
+    position: absolute;
+    top: -20px;
+
+  }
+  .is-title {
+    font-size: 11x;
+  }
+
+  .is-copy {
+    font-size: 9px;
+  }
+  .interactive-muted {
+    padding: 20px;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    gap: 1rem;
+  }
+  /* Let the 3D canvas shrink */
+  .hero3d,
+  .hero3dconf {
+    min-width: auto;
+    width: 100%;
+    height: 350px;
+    order: 2;
+    margin-top: 1rem;
+  }
+  /* Tighter cards grid on AR strip */
+  #ar .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ========== Phone ========== */
+@media (max-width: 480px) {
+  /* Even more compact hero text */
+  .hero-text h1 {
+    font-size: 1.75rem; /* down from md:text-6xl */
+    line-height: 1.2;
+  }
+  .hero-text p {
+    font-size: 0.9rem;
+  }
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  /* AR strip: single-column cards */
+  #ar .grid {
+    grid-template-columns: 1fr;
+  }
+  /* SpeedChallenge, ShaderLab, etc: reduce side padding */
+  .card {
+    padding: 1rem;
+  }
+}
