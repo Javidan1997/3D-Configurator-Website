@@ -5,6 +5,8 @@ import SpeedChallenge from '../components/SpeedChallenge'
 import ShaderLab from '../components/ShaderLab'
 import LightingSandbox from '../components/LightingSandbox'
 import InteractiveSolutions from '../components/InteractiveSolutions'
+import GlobalBrands from '../components/GlobalBrands'
+import RoiSnapshot  from '../components/RoiSnapshot'
 
 export default function Home(){
   return (
@@ -21,9 +23,12 @@ export default function Home(){
       </section>
       <InteractiveSolutions />
       <ARQuickPreviewStrip />
-      <SpeedChallenge />
+      <GlobalBrands />
       <ShaderLab />
+      <RoiSnapshot />
       <LightingSandbox />
+      <SpeedChallenge />
+
     </div>
   )
 }

@@ -95,6 +95,156 @@ canvas {
   background-color: rgb(51, 51, 51);
 }
 
+/* index.css ----------------------------------------------------------- */
+.neon-border {
+  --tw-shadow: 0 0 4px rgba(18, 214, 255, .6), 0 0 12px rgba(18, 214, 255, .4);
+  border: 2px solid rgba(18, 214, 255, .55);
+  box-shadow: var(--tw-shadow);
+}
+.text-accent { /* if not defined already (you used accent) */
+  @apply text-[#12D6FF];
+}
+
+.neon-logo{
+  /* we’ll set the mask-image in JSX                      */
+  background-color:#12D6FF;                 /* paint the shape in neon    */
+  filter:
+    drop-shadow(0 0 4px  #12D6FF)
+    drop-shadow(0 0 10px #12D6FF);
+}
+
+/* optional: tailwind alias so you can write className="text-neon" */
+.text-neon{ color:#12D6FF; }
+
+/* ------------ global neon token ------------ */
+:root {
+  --neon: #12d6ff;
+}
+
+/* ------------ layout ------------ */
+.roi-section {
+  margin-top: 5rem;
+  padding: 0 1rem;
+}
+.roi-panel {
+  max-width: 980px;
+  margin: auto;
+  padding: 2.5rem;
+  background: rgba(6, 10, 20, 0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--neon);
+  border-radius: 20px;
+  box-shadow: 0 0 18px #12d6ff55, inset 0 0 14px #12d6ff33;
+  position: relative;
+}
+.roi-title {
+  text-align: center;
+  color: var(--neon);
+  font: 700 clamp(1.5rem, 1.3rem + 2vw, 2.75rem) / 1.2 var(--tw-font-sans,
+      ui-sans-serif, system-ui);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+.roi-title::after {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  right: -2rem;
+  bottom: -1.1rem;
+  height: 1px;
+  background: var(--neon);
+  opacity: 0.25;
+}
+.roi-grid {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  align-items: center;
+}
+
+/* ------------ bar chart + arrow ------------ */
+.roi-bars {
+  width: 100%;
+  max-width: 420px;
+  filter: drop-shadow(0 0 4px var(--neon)) drop-shadow(0 0 10px var(--neon));
+}
+.bars rect {
+  opacity: 0.85;
+  transform-origin: bottom;
+  animation: roi-grow 1.6s ease-out forwards;
+}
+@keyframes roi-grow {
+  0% {
+    transform: scaleY(0);
+  }
+}
+.arrow path,
+.arrow polyline {
+  stroke-width: 12;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 4 14;
+  animation: roi-dash 6s linear infinite;
+}
+@keyframes roi-dash {
+  to {
+    stroke-dashoffset: -180;
+  }
+}
+
+/* ------------ radial gauges ------------ */
+.roi-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.roi-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.roi-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #9db4d5;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.roi-gauge {
+  width: 110px;
+  height: 110px;
+}
+.roi-gauge .track {
+  stroke: var(--neon);
+  opacity: 0.25;
+  stroke-width: 6;
+  fill: none;
+}
+.roi-gauge .progress {
+  stroke: var(--neon);
+  stroke-width: 6;
+  fill: none;
+  stroke-dasharray: 326; /* 2πr with r = 52 */
+  stroke-dashoffset: 326;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 0 4px var(--neon));
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.45, 0.1, 0.15, 1);
+}
+/* animate when IntersectionObserver sets data-active */
+.roi-gauge[data-active='1'] .progress {
+  stroke-dashoffset: calc(
+    326 - (attr(data-value number, 0) * 3.26)
+  ); /* JS sets data-value; 100% = 326  */
+}
+.roi-gauge text {
+      font: 700 1.05rem / 1 var(--tw-font-sans, ui-sans-serif, system-ui);
+    fill: var(--neon);
+    font-size: 20px;
+}
+
 /* ========== Tablet / Small Desktop ========== */
 @media (max-width: 768px) {
   /* Stack hero text and 3D on top of each other */
@@ -108,8 +258,15 @@ canvas {
     top: -20px;
 
   }
+  .global-brands {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+  }
   .is-title {
-    font-size: 11x;
+    font-size: 13px;
   }
 
   .is-copy {

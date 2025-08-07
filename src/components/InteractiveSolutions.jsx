@@ -41,7 +41,7 @@ const DESKTOP = {
 };
 const MOBILE = {
   CARD_W: 3.2,
-  CARD_H: 3.2,
+  CARD_H: 4.2,
   CARD_R: 0.22,
   GAP: 3.9,
   CAM_POS: [0, 0.4, 7.2],
