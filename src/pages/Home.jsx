@@ -7,6 +7,7 @@ import LightingSandbox from '../components/LightingSandbox'
 import InteractiveSolutions from '../components/InteractiveSolutions'
 import GlobalBrands from '../components/GlobalBrands'
 import RoiSnapshot  from '../components/RoiSnapshot'
+import UpgradeTo3D   from '../components/UpgradeTo3D'
 
 export default function Home(){
   return (
@@ -27,6 +28,7 @@ export default function Home(){
       <ShaderLab />
       <RoiSnapshot />
       <LightingSandbox />
+      <UpgradeTo3D />
       <SpeedChallenge />
 
     </div>
